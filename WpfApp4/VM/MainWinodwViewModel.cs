@@ -17,6 +17,30 @@ namespace WpfApp4.VM
 {
     public class MainWinodwViewModel:ObservableRecipient
     {
+        private string fileName;
+
+        public string FileName
+        {
+            get { return fileName; }
+            set 
+            { 
+                SetProperty(ref fileName, value);
+                (Save as RelayCommand).NotifyCanExecuteChanged();
+            }
+        }
+        private string date;
+
+        public string Date
+        {
+            get { return date; }
+            set 
+            {
+                SetProperty(ref date, value);
+                (Save as RelayCommand).NotifyCanExecuteChanged();
+            }
+        }
+
+
         public int AllSportolo { get { return Logic.AllSportolo; } }
         public double AllSportolomarket { get { return Logic.AllSportolomarket; } }
         private ObservableCollection<Sporotlo> sportolok;
@@ -86,7 +110,7 @@ namespace WpfApp4.VM
                 () => selectedSportoloFromVerseny!=null
                 );
             Save = new RelayCommand(
-                () =>logic.Save("sadsa","asdsa")
+                () =>logic.Save(fileName,date)
                 );
             Messenger.Register<MainWinodwViewModel, string, string>(this, "Info", (recepient, msg) =>
             {
