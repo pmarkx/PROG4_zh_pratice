@@ -21,13 +21,11 @@ namespace WpfApp4
     /// </summary>
     public partial class Editor : Window
     {
-        public Editor()
+        public Editor(Sporotlo sporotlo)
         {
             InitializeComponent();
-        }
-        public Editor(Sporotlo sporotlo):this()
-        {
-            this.DataContext = new EditorWindowViewModel(sporotlo);
+            this.DataContext = new EditorWindowViewModel();
+            (DataContext as EditorWindowViewModel).SetUp(sporotlo);
         }
     }
 }

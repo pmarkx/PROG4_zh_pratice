@@ -23,7 +23,7 @@ namespace WpfApp4
             Ioc.Default.ConfigureServices(
                 new ServiceCollection()
                 .AddSingleton<ISportoloLogic,SportoloLogic>()
-                //.AddSingleton<IEdit,Edit>()
+                .AddSingleton<IEdit,Edit>()
                 .AddSingleton<IMessenger>(WeakReferenceMessenger.Default)
                 .BuildServiceProvider());
         }

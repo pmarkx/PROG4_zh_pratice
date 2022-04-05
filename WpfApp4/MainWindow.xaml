@@ -40,7 +40,7 @@
             <Button Content="Load" Padding="10" Command="{Binding Load}" />
             <Button Content="Add" Padding="10" Command="{Binding Add}"/>
             <Button Content="Delete" Padding="10" Command="{Binding Delete}"/>
-            <Button Content="Edit" Padding="10" Command=""/>
+            <Button Content="Edit" Padding="10" Command="{Binding Edit}"/>
             <Button Content="Save" Padding="10" Command="{Binding Save}"/>
             <TextBox Padding="10" Text="{Binding FileName,UpdateSourceTrigger=PropertyChanged}"/>
             <TextBox Padding="10" Text="{Binding Date,UpdateSourceTrigger=PropertyChanged}"/>

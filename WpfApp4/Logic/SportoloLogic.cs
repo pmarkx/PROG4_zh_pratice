@@ -17,12 +17,12 @@ namespace WpfApp4.Logic
         private IList<Sporotlo> Verseny { get; set; }
 
         private IMessenger Messenger { get; set; }
-        private Edit Editor { get; set; }
+        private IEdit Editor { get; set; }
 
-        public SportoloLogic(IMessenger messenger)
+        public SportoloLogic(IMessenger messenger,IEdit edit)
         {
             Messenger = messenger;
-            //Editor = edit;
+            Editor = edit;
         }
         public int AllSportolo { get { return Verseny != null ? Verseny.Count : 0; } }
 

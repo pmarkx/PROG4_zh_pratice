@@ -9,10 +9,14 @@ namespace WpfApp4.VM
 {
     public class EditorWindowViewModel
     {
-        Sporotlo Sporotlo { get; set; }
-        public EditorWindowViewModel(Sporotlo sporotlo)
+        public Sporotlo a { get; set; }
+        public void SetUp(Sporotlo sporotlo)
         {
-            Sporotlo = sporotlo;
+            a = sporotlo;
+        }
+        public EditorWindowViewModel()
+        {
+
         }
     }
 }

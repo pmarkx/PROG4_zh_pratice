@@ -12,12 +12,14 @@ using System.Windows.Input;
 using Microsoft.Toolkit.Mvvm.Input;
 using WpfApp4.Logic;
 using Microsoft.Toolkit.Mvvm.DependencyInjection;
+using WpfApp4.Service;
 
 namespace WpfApp4.VM
 {
     public class MainWinodwViewModel:ObservableRecipient
     {
         private string fileName;
+
 
         public string FileName
         {
@@ -61,7 +63,7 @@ namespace WpfApp4.VM
             {
                 selectedSportoloFromSportolok = value;
                 (Add as RelayCommand).NotifyCanExecuteChanged();
-                //(Edit as RelayCommand).NotifyCanExecuteChanged();
+                (Edit as RelayCommand).NotifyCanExecuteChanged();
 
             } 
         }
@@ -112,6 +114,16 @@ namespace WpfApp4.VM
             Save = new RelayCommand(
                 () =>logic.Save(fileName,date)
                 );
+            Edit = new RelayCommand(
+                () =>
+                {
+                    if (selectedSportoloFromSportolok != null)
+                    {
+                        logic.Edit(selectedSportoloFromSportolok);
+                    }
+                }
+                );
+
             Messenger.Register<MainWinodwViewModel, string, string>(this, "Info", (recepient, msg) =>
             {
                 OnPropertyChanged(nameof(AllSportolo));
